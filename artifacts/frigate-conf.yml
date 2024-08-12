@@ -1,0 +1,23 @@
+mqtt:
+  enabled: false
+tls:
+  enabled: False
+go2rtc:
+  streams:
+    bedroom:
+    - rtsp://192.168.50.130:8554/1080p?mp4
+cameras:
+  bedroom:
+    ffmpeg:
+      inputs:
+      - path: rtsp://192.168.50.130:8554/1080p?mp4
+record:
+  enabled: True
+  retain:
+    days: 3
+    mode: all
+  events:
+    retain:
+      default: 30
+      mode: motion
+version: 0.14
