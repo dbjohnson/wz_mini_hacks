@@ -11,6 +11,17 @@ cameras:
     ffmpeg:
       inputs:
       - path: rtsp://192.168.50.130:8554/1080p?mp4
+        input_args: preset-rtsp-restream
+        roles:
+          - audio
+          - detect
+          - record
+      output_args:
+        record: preset-record-generic-audio-aac
+      hwaccel_args: preset-vaapi
+detect:
+  fps: 3
+  enabled: True
 record:
   enabled: True
   retain:
