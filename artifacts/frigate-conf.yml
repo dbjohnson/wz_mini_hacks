@@ -19,8 +19,18 @@ cameras:
       output_args:
         record: preset-record-generic-audio-aac
       hwaccel_args: preset-vaapi
+detectors:
+  ov:
+    type: openvino
+model:
+  width: 300
+  height: 300
+  input_tensor: nhwc
+  input_pixel_format: bgr
+  path: /openvino-model/ssdlite_mobilenet_v2.xml
+  labelmap_path: /openvino-model/coco_91cl_bkgr.txt
 detect:
-  fps: 3
+  fps: 5
   enabled: True
 record:
   enabled: True
